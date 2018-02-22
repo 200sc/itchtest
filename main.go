@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	port = flag.String("port", ":1609", "")
+	port = flag.String("port", ":80", "")
 )
 
 // Todo: differ responses based on POST or GET
@@ -19,24 +19,24 @@ var (
 
 var (
 	routes = map[string]http.Handler{
-		"wharf/status":                               http.HandlerFunc(HandleWharfStatus),
-		"wharf/builds":                               http.HandlerFunc(HandleWharfBuilds),
-		"wharf/channels":                             http.HandlerFunc(HandleWharfChannels),
-		"me":                                         http.HandlerFunc(HandleMe),
-		"my-games":                                   http.HandlerFunc(HandleMyGames),
-		"credentials/subkey":                         http.HandlerFunc(HandleCredentialsSubkey),
-		"game/{game}/uploads":                        http.HandlerFunc(HandleGameUploads),
-		"upload/{upload}/download":                   http.HandlerFunc(HandleUploadDownload),
-		"wharf/channels/{channel}":                   http.HandlerFunc(HandleGetChannel),
-		"wharf/builds/{build}/files":                 http.HandlerFunc(HandleBuildFiles),
-		"wharf/builds/{build}/files/{file}":          http.HandlerFunc(HandleFinalizeBuildFile),
-		"wharf/builds/{build}/files/{file}/download": http.HandlerFunc(HandleBuildFileDownload),
-		"upload/{upload}/download/builds/{build}":    http.HandlerFunc(HandleDownloadUploadBuild),
-		"wharf/builds/{build}/events":                http.HandlerFunc(HandleCreateBuild),
-		"wharf/builds/{build}/failures/rediff":       http.HandlerFunc(HandleCreateRediffBuildFailure),
-		"download-key/{downloadKey}/uploads":         http.HandlerFunc(HandleListGameUploads),
-		"upload/{upload}/upgrade/{build}":            http.HandlerFunc(HandleFindUpgrade),
-		"game/{game}/download":                       http.HandlerFunc(HandleDownloadSession),
+		"{key}/me":                                         http.HandlerFunc(HandleMe),
+		"{key}/my-games":                                   http.HandlerFunc(HandleMyGames),
+		"{key}/credentials/subkey":                         http.HandlerFunc(HandleCredentialsSubkey),
+		"{key}/game/{game}/uploads":                        http.HandlerFunc(HandleGameUploads),
+		"{key}/game/{game}/download":                       http.HandlerFunc(HandleDownloadSession),
+		"{key}/wharf/builds/{build}/files":                 http.HandlerFunc(HandleBuildFiles),
+		"{key}/wharf/builds/{build}/files/{file}":          http.HandlerFunc(HandleFinalizeBuildFile),
+		"{key}/wharf/builds/{build}/files/{file}/download": http.HandlerFunc(HandleBuildFileDownload),
+		"{key}/wharf/builds/{build}/events":                http.HandlerFunc(HandleCreateBuild),
+		"{key}/wharf/builds/{build}/failures/rediff":       http.HandlerFunc(HandleCreateRediffBuildFailure),
+		"{key}/wharf/status":                               http.HandlerFunc(HandleWharfStatus),
+		"{key}/wharf/builds":                               http.HandlerFunc(HandleWharfBuilds),
+		"{key}/wharf/channels":                             http.HandlerFunc(HandleWharfChannels),
+		"{key}/wharf/channels/{channel}":                   http.HandlerFunc(HandleGetChannel),
+		"{key}/download-key/{downloadKey}/uploads":         http.HandlerFunc(HandleListGameUploads),
+		"{key}/upload/{upload}/download/builds/{build}":    http.HandlerFunc(HandleDownloadUploadBuild),
+		"{key}/upload/{upload}/upgrade/{build}":            http.HandlerFunc(HandleFindUpgrade),
+		"{key}/upload/{upload}/download":                   http.HandlerFunc(HandleUploadDownload),
 	}
 )
 
