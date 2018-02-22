@@ -30,7 +30,7 @@ var (
 		"wharf/channels/{channel}":                   http.HandlerFunc(HandleGetChannel),
 		"wharf/builds/{build}/files":                 http.HandlerFunc(HandleBuildFiles),
 		"wharf/builds/{build}/files/{file}":          http.HandlerFunc(HandleFinalizeBuildFile),
-		"whatf/builds/{build}/files/{file}/download": http.HandlerFunc(HandleBuildFileDownload),
+		"wharf/builds/{build}/files/{file}/download": http.HandlerFunc(HandleBuildFileDownload),
 		"upload/{upload}/download/builds/{build}":    http.HandlerFunc(HandleDownloadUploadBuild),
 		"wharf/builds/{build}/events":                http.HandlerFunc(HandleCreateBuild),
 		"wharf/builds/{build}/failures/rediff":       http.HandlerFunc(HandleCreateRediffBuildFailure),
